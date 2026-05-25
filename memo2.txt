@@ -1,1 +1,2 @@
 Siamo in locale sulla working directory
+ora tramite commit e push su desktop github siamo anche qua
