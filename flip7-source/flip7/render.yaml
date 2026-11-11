@@ -1,0 +1,19 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Su Render: New → Blueprint → collega il repository e premi Apply.
+services:
+  - type: web
+    name: flip7
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build:all
+    startCommand: node dist-server/server.mjs
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      # Dopo il primo deploy aggiungi da Dashboard → Environment, così il
+      # server accetta WebSocket solo dal tuo dominio:
+      # - key: ALLOWED_ORIGINS
+      #   value: https://<nome-servizio>.onrender.com
